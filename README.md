@@ -12,10 +12,10 @@ Download a release from [the releases page](https://github.com/arceryz/ncryptor/
 You can then place a shortcut to Ncryptor.exe somewhere like /Documents or /Downloads /Desktop where windows can find it.
 It will show up in the windows search menu.
 
-To setup the click-to-open functionality, go to Settings/Apps/Default Apps and then add an entry for *.aes* files. Link to the extracted
+To setup the click-to-open functionality, go to Settings/Apps/Default Apps and then add an entry for *.aes files. Link to the extracted
 executable to compte the setup.
 
 # Feature requests
 
 This project aims to focus only on the encryption and decryption of text files, so please create an issue for anything in that context.
-I do not feel like creating an installer, because it makes the program more dependent on the system. This program is intended to be portable and usable from a USB drive.
+I do not feel like creating an installer, because it makes the program more dependent on the system. This program is intended to be portable and usable from a USB drive.git add
