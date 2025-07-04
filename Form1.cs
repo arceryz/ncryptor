@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using Konscious.Security.Cryptography;
 
 namespace Encryptor
 {
@@ -22,6 +16,7 @@ namespace Encryptor
 		{
 			InitializeComponent();
 			string[] args = Environment.GetCommandLineArgs();
+
 			for (int i = 0; i < args.Length; i++)
 			{
 				if (args[i].EndsWith(".aes"))
@@ -111,11 +106,22 @@ namespace Encryptor
 		}
 
 		// Encryption and Decryption
+		byte[] generateAesKey()
+		{
+			var argon = new Argon2id(Encoding.UTF8.GetBytes(keyTextBox.Text));
+			argon.DegreeOfParallelism = 1;
+			argon.MemorySize = 65536;
+			argon.Iterations = 3;
+			argon.Salt = Encoding.UTF8.GetBytes("please_replace_this_salt_with_gui");
+
+			byte[] result = argon.GetBytes(32);
+			return result;
+		}
+
 		private void decryptButton_Click(object sender, EventArgs e)
 		{
-			SHA256 sha = SHA256.Create();
 			Aes aes = Aes.Create();
-			aes.Key = sha.ComputeHash(Encoding.UTF8.GetBytes(keyTextBox.Text));
+			aes.Key = generateAesKey();
 
 			byte[] combined;
 			try
@@ -155,9 +161,8 @@ namespace Encryptor
 
 		private void encryptButton_Click(object sender, EventArgs e)
 		{
-			SHA256 sha = SHA256.Create();
 			Aes aes = Aes.Create();
-			aes.Key = sha.ComputeHash(Encoding.UTF8.GetBytes(keyTextBox.Text));
+			aes.Key = generateAesKey();
 			aes.GenerateIV();
 
 			byte[] data = Encoding.UTF8.GetBytes(textBox.Text);
