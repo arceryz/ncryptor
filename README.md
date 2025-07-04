@@ -4,7 +4,9 @@
 # ncryptor
 A minimal AES encryption/decryption program in Windows Forms. 
 
-Current roadmap:
+This project aims to focus only on the encryption and decryption of text files, so only create issue in that context.
+I do not feel like creating an installer, because it makes the program more dependent on the system. This program is intended to be portable and usable from a USB drive. Current roadmap:
+
 - [x] Click-to-open functionality for *.aes files.
 - [x] AES encryption in CBC mode with PKCS7 padding and a random IV.
 - [x] Argon2id key derivation.
@@ -13,8 +15,6 @@ Current roadmap:
 - [ ] Memory hardening.
 - [ ] CPU hardening.
 
-This project aims to focus only on the encryption and decryption of text files, so only create issue in that context.
-I do not feel like creating an installer, because it makes the program more dependent on the system. This program is intended to be portable and usable from a USB drive.
 
 # Installation
 
