@@ -17,5 +17,5 @@ executable to compte the setup.
 
 # Feature requests
 
-This project aims to focus only on the encryption and decryption of text files, so please create an issue for anything in that context.
-I do not feel like creating an installer, because it makes the program more dependent on the system. This program is intended to be portable and usable from a USB drive.git add
+This project aims to focus only on the encryption and decryption of text files, so only create issue in that context.
+I do not feel like creating an installer, because it makes the program more dependent on the system. This program is intended to be portable and usable from a USB drive.
